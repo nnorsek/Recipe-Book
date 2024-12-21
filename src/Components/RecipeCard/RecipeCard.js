@@ -1,20 +1,28 @@
 import React from "react";
 import ImageLink from "../ImageLink";
 import styles from "../RecipeCard/RecipeCard.module.css";
+import { useNavigate } from "react-router-dom";
 
-const RecipeCard = ({ title, description, image, href }) => {
+const RecipeCard = ({ title, nutrition, cookTime, image, href }) => {
+  let navigate = useNavigate();
+  const handleOpenRecipe = () => {
+    navigate(`/${title}`);
+    console.log(title);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleOpenRecipe}>
       {image && (
         <ImageLink
           src={image}
           alt={title}
           href={href}
-          className={styles.image}
+          className={styles.imageOfFood}
         />
       )}
       <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
+      <p className={styles.nutrition}>{nutrition}</p>
+      <p className={styles.cookTime}>{cookTime}</p>
     </div>
   );
 };

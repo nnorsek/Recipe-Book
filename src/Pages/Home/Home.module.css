@@ -1,18 +1,19 @@
 .homepage {
   padding: 10px;
-  display: flex;
-  justify-content: center;
 }
 .dailyPicks {
-  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .dailyPicks h1 {
-  font-size: 35px;
+  font-size: 50px;
   font-weight: normal;
-  padding: 5px;
-}
-
-.dailyPicksImages {
-  padding: 60px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
 }
