@@ -1,9 +1,8 @@
 import RecipeCard from "../../Components/RecipeCard/RecipeCard.js";
 import styles from "./Home.module.css";
-import { useState } from "react";
+import React from "react";
 
 const Home = () => {
-  const [weeklyRecipes, setWeeklyRecipes] = useState("");
   return (
     <div className={styles.homepage}>
       <h1>Favorites of the Week</h1>
