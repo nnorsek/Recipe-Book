@@ -10,54 +10,73 @@ const Recipe = () => {
   const [filterCategory, setFilterCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
-  // Fetch categories and meals
+  // Fetch categories and initial meals
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetching categories
         const categoryResponse = await fetch(
           "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
         );
         const categoryData = await categoryResponse.json();
-        setCategories(categoryData.meals); // Save categories
+        setCategories(categoryData.meals);
 
-        // Fetching meals (if needed)
         const mealResponse = await fetch(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`
         );
         const mealData = await mealResponse.json();
-        setRecipeData(mealData.meals); // Save all meals
-        setFilteredData(mealData.meals); // Initially set filtered data to all meals
+        setRecipeData(mealData.meals || []);
+        setFilteredData(mealData.meals || []);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }
     };
 
     fetchData();
-  }, []);
-  console.log("Filter Cat:", filterCategory);
+  }, [searchTerm]);
 
-  // Filtering logic based on search term and selected category
+  // Fetch and enrich meals by category
   useEffect(() => {
-    let filteredMeals = recipeData;
+    const fetchFilteredMeals = async () => {
+      if (filterCategory) {
+        try {
+          const categoryMealsResponse = await fetch(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${filterCategory}`
+          );
+          const categoryMealsData = await categoryMealsResponse.json();
 
-    // Filter by category if a category is selected
-    if (filterCategory) {
-      filteredMeals = filteredMeals.filter(
-        (meal) => meal.strCategory === filterCategory
-      );
-    }
+          const enrichedMeals = await Promise.all(
+            categoryMealsData.meals.map(async (meal) => {
+              const response = await fetch(
+                `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`
+              );
+              const data = await response.json();
+              return data.meals[0];
+            })
+          );
 
-    // Filter by search term
+          setFilteredData(enrichedMeals);
+        } catch (error) {
+          console.error("Error fetching meals by category:", error.message);
+        }
+      } else {
+        setFilteredData(recipeData);
+      }
+    };
+
+    fetchFilteredMeals();
+  }, [filterCategory, recipeData]);
+
+  // Filter meals by search term
+  useEffect(() => {
     if (searchTerm) {
-      filteredMeals = filteredMeals.filter((meal) =>
-        meal.strMeal.toLowerCase().includes(searchTerm.toLowerCase())
+      const filteredMeals = (filterCategory ? filteredData : recipeData).filter(
+        (meal) => meal.strMeal.toLowerCase().includes(searchTerm.toLowerCase())
       );
+      setFilteredData(filteredMeals);
+    } else if (!filterCategory) {
+      setFilteredData(recipeData);
     }
-
-    setFilteredData(filteredMeals);
-  }, [searchTerm, filterCategory, recipeData]);
-
+  }, [searchTerm, recipeData]);
   return (
     <div className={styles.container}>
       <SearchBar
@@ -73,12 +92,12 @@ const Recipe = () => {
             <div key={meal.idMeal}>
               <RecipeCard
                 title={meal.strMeal}
-                description={meal.strArea + " " + meal.strCategory}
-                cookTime={
-                  "Cook Time: " +
-                  Math.floor(3 + Math.random() * 27) +
-                  " Minute(s)"
-                }
+                description={`${meal.strArea || "Unknown Area"} - ${
+                  meal.strCategory || "Unknown Category"
+                }`}
+                cookTime={`Cook Time: ${Math.floor(
+                  Math.random() * 22
+                )} Minute(s)`}
                 image={meal.strMealThumb}
                 href="/"
               />

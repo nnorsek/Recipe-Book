@@ -19,7 +19,13 @@
 }
 
 .title {
-  font-size: 2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.3rem;
+  width: 260px;
+  min-height: 30px;
+  max-height: 35px;
+  overflow: hidden;
   margin: 20px 0;
   font-weight: bold;
   color: #333;

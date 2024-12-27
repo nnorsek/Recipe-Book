@@ -1,5 +1,5 @@
 import React from "react";
-import ImageLink from "../ImageLink";
+import ImageLink from "../ImageLink/ImageLink";
 import styles from "../RecipeCard/RecipeCard.module.css";
 import { useNavigate } from "react-router-dom";
 

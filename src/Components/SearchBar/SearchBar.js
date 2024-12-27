@@ -23,7 +23,7 @@ const SearchBar = ({
         value={filterCategory}
         onChange={(e) => setFilterCategory(e.target.value)}
       >
-        <option value="">All Categories</option>
+        <option value="">Featured Recipes</option>
         {categories.map((category) => (
           <option key={category.strCategory} value={category.strCategory}>
             {category.strCategory}
