@@ -99,7 +99,7 @@ const Recipe = () => {
                   Math.random() * 22
                 )} Minute(s)`}
                 image={meal.strMealThumb}
-                href="/"
+                recipeData={meal}
               />
             </div>
           ))}

@@ -1,5 +1,6 @@
 .homepage {
   padding: 10px;
+  min-width: 500px;
 }
 .dailyPicks {
   display: flex;
