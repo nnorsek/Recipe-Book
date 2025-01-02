@@ -1,10 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .navbar {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   margin-right: 130px;
   align-items: center;
   background-color: white;
   min-width: 1000px;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -20,6 +35,7 @@ ul li a:hover {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 li {

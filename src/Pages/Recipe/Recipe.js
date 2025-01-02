@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import RecipeCard from "../../Components/RecipeCard/RecipeCard";
+import {
+  getCategories,
+  getMealDetails,
+  getMealsByCategory,
+  searchMeals,
+} from "../../Utils/api.js";
 import styles from "./Recipe.module.css";
 
 const Recipe = () => {
@@ -10,20 +16,13 @@ const Recipe = () => {
   const [filterCategory, setFilterCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
-  // Fetch categories and initial meals
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categoryResponse = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
-        );
-        const categoryData = await categoryResponse.json();
+        const categoryData = await getCategories();
         setCategories(categoryData.meals);
 
-        const mealResponse = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`
-        );
-        const mealData = await mealResponse.json();
+        const mealData = await searchMeals(searchTerm);
         setRecipeData(mealData.meals || []);
         setFilteredData(mealData.meals || []);
       } catch (error) {
@@ -34,29 +33,21 @@ const Recipe = () => {
     fetchData();
   }, [searchTerm]);
 
-  // Fetch and enrich meals by category
   useEffect(() => {
     const fetchFilteredMeals = async () => {
       if (filterCategory) {
         try {
-          const categoryMealsResponse = await fetch(
-            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${filterCategory}`
-          );
-          const categoryMealsData = await categoryMealsResponse.json();
+          const categoryMealsData = await getMealsByCategory(filterCategory);
 
           const enrichedMeals = await Promise.all(
             categoryMealsData.meals.map(async (meal) => {
-              const response = await fetch(
-                `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`
-              );
-              const data = await response.json();
-              return data.meals[0];
+              const mealDetails = await getMealDetails(meal.idMeal);
+              return mealDetails.meals[0];
             })
           );
-
           setFilteredData(enrichedMeals);
         } catch (error) {
-          console.error("Error fetching meals by category:", error.message);
+          console.error("Error fetching filtered meals:", error.message);
         }
       } else {
         setFilteredData(recipeData);
@@ -66,17 +57,8 @@ const Recipe = () => {
     fetchFilteredMeals();
   }, [filterCategory, recipeData]);
 
-  // Filter meals by search term
-  useEffect(() => {
-    if (searchTerm) {
-      const filteredMeals = (filterCategory ? filteredData : recipeData).filter(
-        (meal) => meal.strMeal.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredData(filteredMeals);
-    } else if (!filterCategory) {
-      setFilteredData(recipeData);
-    }
-  }, [searchTerm, recipeData]);
+  console.log("fetch filtered meals: recipeData", recipeData);
+  console.log("fetch filtered meals: filteredData", filteredData);
   return (
     <div className={styles.container}>
       <SearchBar
@@ -100,6 +82,7 @@ const Recipe = () => {
                 )} Minute(s)`}
                 image={meal.strMealThumb}
                 recipeData={meal}
+                idMeal={meal.idMeal}
               />
             </div>
           ))}
