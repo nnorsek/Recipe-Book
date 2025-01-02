@@ -111,6 +111,9 @@ const Home = () => {
         <h1>Recipe Lookup</h1>
         <Recipe />
       </div>
+      <div id="aboutSection">
+        <h2>About</h2>
+      </div>
     </div>
   );
 };

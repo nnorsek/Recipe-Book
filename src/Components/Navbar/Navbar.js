@@ -42,11 +42,6 @@ const Navbar = () => {
             ABOUT
           </Link>
         </li>
-        <li>
-          <Link to="contactSection" smooth={true} duration={500} offset={-70}>
-            CONTACT
-          </Link>
-        </li>
       </ul>
     </nav>
   );
