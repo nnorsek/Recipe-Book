@@ -1,8 +1,13 @@
+@font-face {
+  font-family: "Wild Hazelnut";
+  src: url("../../Fonts/WildHazelnut.ttf") format("truetype");
+}
+
 .homepage {
   padding: 10px;
   min-width: 500px;
 }
-.dailyPicks {
+.weeklyPicks {
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
@@ -10,11 +15,16 @@
   align-items: stretch;
 }
 
-.dailyPicks h1 {
+.homepage h1 {
+  font-family: "Wild Hazelnut";
   font-size: 50px;
   font-weight: normal;
   padding: 20px;
   text-align: center;
   width: 100%;
-  margin-bottom: 20px;
+}
+
+.recipe {
+  margin-top: 130px;
+  padding: 20px;
 }

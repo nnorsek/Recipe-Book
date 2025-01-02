@@ -8,7 +8,7 @@
 .header {
   display: flex;
   flex-direction: column;
-  text-align: center; /* Center-align the title and image */
+  text-align: center;
 }
 
 .header img {
@@ -22,12 +22,12 @@
 
 .content {
   display: flex;
-  gap: 20px; /* Space between columns */
+  gap: 20px;
 }
 
 .ingredients,
 .instructions {
-  flex: 1; /* Equal width for both columns */
+  flex: 1;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;

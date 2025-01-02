@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ImageLink.module.css";
 
-const ImageLink = ({ href, src, alt }) => (
+const ImageLink = ({ src, alt }) => (
   <a className={styles.imageHeader}>
     <img src={src} alt={alt} className={styles.image} />
   </a>
