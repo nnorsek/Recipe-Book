@@ -27,15 +27,25 @@ const RecipeDetails = () => {
       .map((step, index) => `Step ${index + 1}: ${step.trim()}`);
   };
   const steps = formatInstructions(recipeData.strInstructions);
+
+  console.log("Recipe Data:", recipeData);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
-        <img
-          src={recipeData.strMealThumb}
-          alt={recipeData.strMeal}
-          className={styles.image}
-        />
+        <div className={styles.information}>
+          <img
+            src={recipeData.strMealThumb}
+            alt={recipeData.strMeal}
+            className={styles.image}
+          />
+          <p>Origin: {recipeData.strArea}</p>
+          <p>Category: {recipeData.strCategory}</p>
+
+          <a href={recipeData.strYoutube} target="_blank">
+            YouTube Tutorial
+          </a>
+        </div>
       </div>
       <div className={styles.content}>
         <div className={styles.ingredients}>
@@ -48,7 +58,7 @@ const RecipeDetails = () => {
           </ul>
         </div>
         <div className={styles.instructions}>
-          <p>Instrcutions</p>
+          <p>Instructions</p>
           <ol>
             {steps.map((step, index) => (
               <li key={index}>{step}</li>
