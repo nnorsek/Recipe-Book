@@ -3,39 +3,62 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0px;
-  gap: 10px; /* Adds spacing between sections */
+  gap: 10px;
+  padding: 50px;
 }
 
 .title {
-  font-size: 4rem;
+  display: flex;
+  margin-top: 20px;
+  margin: 0 auto;
+  padding: 40px;
+  font-size: 5rem;
   font-family: "Newsreader";
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .header img {
-  width: 480px;
-  display: block;
-  margin-left: 205px;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  display: flex;
   height: auto;
-  border-radius: 40px;
-  padding: 20px;
+  border-radius: 30px;
+  flex-direction: column;
+  box-shadow: 0px 6px 20px 5px rgba(0, 0, 0, 0.1);
 }
 .information {
+  margin: 0 auto;
   display: flex;
   padding: 20px;
   margin-top: -10px;
-  gap: 10px;
+  gap: 20px;
+}
+.information p {
+  padding-right: 10px;
+  border-right: 1px solid #000;
 }
 
-.information p {
-  font-size: 20px;
-  gap: 10px;
+.information p a {
+  flex-direction: row;
+  font-size: 15px;
+  border-right: 1px solid #00000000;
+}
+
+.information a:hover {
+  transition: 0.5s ease;
+  transform: scale(1.05);
+}
+.information a {
+  font-weight: bold;
+  color: #ff0000;
+  font-style: italic;
 }
 
 .content {
@@ -53,7 +76,8 @@
   gap: 10px;
   background-color: #f9f9f95e;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 4px 6px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .ingredients p,
@@ -77,4 +101,46 @@
   margin-bottom: 10px;
   font-size: 1rem;
   line-height: 1.8;
+}
+.backButton:hover {
+  background-color: #1876cd;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+.jumpToRecipe:hover {
+  background-color: #e6572b;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
+.buttons {
+  display: flex;
+  gap: 80px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.jumpToRecipe {
+  background-color: #ff8671;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backButton {
+  background-color: #18a9cd;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jumpToRecipe,
+.backButton {
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 17px;
+  border: none;
+  transform: all 0.3s ease;
+  border-radius: 50px;
+  width: 200px;
+  font-family: "Open Sans";
 }

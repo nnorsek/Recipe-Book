@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
+  const location = useLocation();
+
+  const isRecipeDetailsPageOpen = location.pathname.includes("/recipes");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +24,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  if (isRecipeDetailsPageOpen) {
+    return null;
+  }
 
   return (
     <nav className={`${styles.navbar} ${scrolling ? styles.scrolled : ""}`}>

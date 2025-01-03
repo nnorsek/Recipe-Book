@@ -26,7 +26,7 @@ const RecipeCard = ({
         )}
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.nutrition}>{description}</p>
-        <p className={styles.cookTime}>{cookTime} min</p>
+        <p className={styles.cookTime}>{cookTime}</p>
       </div>
       <StarRating idMeal={idMeal} />
     </div>
