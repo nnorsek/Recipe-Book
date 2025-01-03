@@ -77,9 +77,7 @@ const Recipe = () => {
                 description={`${meal.strArea || "Unknown Area"} - ${
                   meal.strCategory || "Unknown Category"
                 }`}
-                cookTime={`Cook Time: ${Math.floor(
-                  Math.random() * 22
-                )} Minute(s)`}
+                cookTime={`Cook Time: ${Math.floor(Math.random() * 22)}`}
                 image={meal.strMealThumb}
                 recipeData={meal}
                 idMeal={meal.idMeal}
