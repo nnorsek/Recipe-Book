@@ -41,6 +41,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="createSection" smooth={true} duration={500} offset={-70}>
+            CREATE
+          </Link>
+        </li>
+        <li>
           <Link to="recipesSection" smooth={true} duration={500} offset={-70}>
             RECIPES
           </Link>

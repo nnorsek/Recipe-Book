@@ -61,6 +61,7 @@ const Recipe = () => {
   console.log("fetch filtered meals: filteredData", filteredData);
   return (
     <div className={styles.container}>
+      <h1>Recipe Lookup</h1>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
