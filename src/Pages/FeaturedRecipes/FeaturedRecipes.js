@@ -69,7 +69,7 @@ const FeaturedRecipes = () => {
   if (!weeklyMealData.length) {
     return <p>No meals found for this week.</p>;
   }
-  console.log(weeklyMealData);
+  console.log("featured");
 
   return (
     <div className={styles.homepage} id="homeSection">
@@ -80,7 +80,7 @@ const FeaturedRecipes = () => {
           description={`${weeklyMealData[0].strArea || "Unknown Area"} - ${
             weeklyMealData[0].strCategory || "Unknown Category"
           }`}
-          cookTime={`Cook Time: ${Math.floor(Math.random() * 22)}`}
+          cookTime={`Cook Time: ${(Math.floor(Math.random() * 6) + 1) * 5}`}
           image={weeklyMealData[0].strMealThumb}
           recipeData={weeklyMealData[0]}
           idMeal={weeklyMealData[0].idMeal}
@@ -90,7 +90,7 @@ const FeaturedRecipes = () => {
           description={`${weeklyMealData[1].strArea || "Unknown Area"} - ${
             weeklyMealData[1].strCategory || "Unknown Category"
           }`}
-          cookTime={`Cook Time: ${Math.floor(Math.random() * 22)}`}
+          cookTime={`Cook Time: ${(Math.floor(Math.random() * 6) + 1) * 5}`}
           image={weeklyMealData[1].strMealThumb}
           recipeData={weeklyMealData[1]}
           idMeal={weeklyMealData[1].idMeal}
@@ -100,7 +100,7 @@ const FeaturedRecipes = () => {
           description={`${weeklyMealData[2].strArea || "Unknown Area"} - ${
             weeklyMealData[2].strCategory || "Unknown Category"
           }`}
-          cookTime={`Cook Time: ${Math.floor(Math.random() * 22)}`}
+          cookTime={`Cook Time: ${(Math.floor(Math.random() * 6) + 1) * 5}`}
           image={weeklyMealData[2].strMealThumb}
           recipeData={weeklyMealData[2]}
           idMeal={weeklyMealData[2].idMeal}

@@ -1,22 +1,18 @@
-import RecipeCard from "../../Components/RecipeCard/RecipeCard.js";
-import {
-  getMealDetails,
-  getCategories,
-  getMealsByCategory,
-} from "../../Utils/api.js";
 import styles from "./Home.module.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Recipe from "../Recipe/Recipe.js";
 import FeaturedRecipes from "../FeaturedRecipes/FeaturedRecipes.js";
+import CreateRecipe from "../CreateRecipe/CreateRecipe.js";
 
 const Home = () => {
+  console.log("home");
   return (
     <div className={styles.homepage} id="homeSection">
-      <div className={styles.createRecipe} id="createSection">
+      <div className={styles.featuredRecipes} id="featuredSection">
         <FeaturedRecipes />
       </div>
       <div className={styles.createRecipe} id="createSection">
-        <h1>Create Recipe</h1>
+        <CreateRecipe />
       </div>
       <div className={styles.recipe} id="recipesSection">
         <Recipe />

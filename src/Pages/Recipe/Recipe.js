@@ -10,6 +10,7 @@ import {
 import styles from "./Recipe.module.css";
 
 const Recipe = () => {
+  console.log("recipes");
   const [recipeData, setRecipeData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -57,8 +58,6 @@ const Recipe = () => {
     fetchFilteredMeals();
   }, [filterCategory, recipeData]);
 
-  console.log("fetch filtered meals: recipeData", recipeData);
-  console.log("fetch filtered meals: filteredData", filteredData);
   return (
     <div className={styles.container}>
       <h1>Recipe Lookup</h1>
@@ -78,7 +77,9 @@ const Recipe = () => {
                 description={`${meal.strArea || "Unknown Area"} - ${
                   meal.strCategory || "Unknown Category"
                 }`}
-                cookTime={`Cook Time: ${Math.floor(Math.random() * 22)}`}
+                cookTime={`Cook Time: ${
+                  (Math.floor(Math.random() * 6) + 1) * 5
+                }`}
                 image={meal.strMealThumb}
                 recipeData={meal}
                 idMeal={meal.idMeal}

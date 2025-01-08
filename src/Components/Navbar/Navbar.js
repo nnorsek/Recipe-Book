@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  console.log("navbar");
   const [scrolling, setScrolling] = useState(false);
   const location = useLocation();
 
@@ -36,8 +37,8 @@ const Navbar = () => {
       </a>
       <ul className="nav-links">
         <li>
-          <Link to="homeSection" smooth={true} duration={500} offset={-70}>
-            HOME
+          <Link to="featuredSection" smooth={true} duration={500} offset={-70}>
+            FEATURED
           </Link>
         </li>
         <li>
