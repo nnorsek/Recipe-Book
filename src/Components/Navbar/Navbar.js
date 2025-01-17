@@ -8,7 +8,9 @@ const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const location = useLocation();
 
-  const isRecipeDetailsPageOpen = location.pathname.includes("/recipes");
+  const noNavBar =
+    location.pathname.includes("/recipes") ||
+    location.pathname.includes("/create");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +28,7 @@ const Navbar = () => {
     };
   }, []);
 
-  if (isRecipeDetailsPageOpen) {
+  if (noNavBar) {
     return null;
   }
 

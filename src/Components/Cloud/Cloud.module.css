@@ -1,0 +1,210 @@
+/* Cloud container */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #87ceeb, #b0e0e6);
+}
+
+/* Cloud movement animation */
+@keyframes moveCloud {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(130vw);
+  }
+}
+
+/* Base cloud shape */
+.base {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50px;
+}
+
+/* Generic fluff for all clouds */
+[class*="fluff"] {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cloud Variations */
+
+/* Small cloud */
+.cloudSmall {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  top: 15%;
+  left: -200px;
+  animation: moveCloud 40s linear infinite;
+}
+
+.fluffOne {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 10px;
+}
+
+.fluffTwo {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 50px;
+}
+
+.fluffThree {
+  width: 50px;
+  height: 50px;
+  top: -20px;
+  left: 100px;
+}
+
+/* Medium cloud */
+.cloudMedium {
+  position: absolute;
+  width: 220px;
+  height: 70px;
+  top: 35%;
+  left: -250px;
+  animation: moveCloud 60s linear infinite;
+}
+
+.fluffFour {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 20px;
+}
+
+.fluffFive {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 70px;
+}
+
+.fluffSix {
+  width: 70px;
+  height: 70px;
+  top: -20px;
+  left: 140px;
+}
+
+.fluffSeven {
+  width: 60px;
+  height: 60px;
+  top: -15px;
+  left: 180px;
+}
+
+/* Large cloud */
+.cloudLarge {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 55%;
+  left: -350px;
+  animation: moveCloud 80s linear infinite;
+}
+
+.fluffEight {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 30px;
+}
+
+.fluffNine {
+  width: 130px;
+  height: 130px;
+  top: -60px;
+  left: 90px;
+}
+
+.fluffTen {
+  width: 90px;
+  height: 90px;
+  top: -40px;
+  left: 180px;
+}
+
+.fluffEleven {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 230px;
+}
+
+.fluffTwelve {
+  width: 70px;
+  height: 70px;
+  top: -20px;
+  left: 270px;
+}
+
+/* Extra Small Cloud (farther away) */
+.cloudExtraSmall {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  top: 70%;
+  left: -150px;
+  animation: moveCloud 50s linear infinite;
+  opacity: 0.6;
+}
+
+.fluffThirteen {
+  width: 40px;
+  height: 40px;
+  top: -10px;
+  left: 10px;
+}
+
+.fluffFourteen {
+  width: 50px;
+  height: 50px;
+  top: -20px;
+  left: 40px;
+}
+
+/* Wide, stretched cloud */
+.cloudWide {
+  position: absolute;
+  width: 350px;
+  height: 80px;
+  top: 25%;
+  left: -400px;
+  animation: moveCloud 100s linear infinite;
+}
+
+.fluffFifteen {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  left: 30px;
+}
+
+.fluffSixteen {
+  width: 150px;
+  height: 150px;
+  top: -60px;
+  left: 100px;
+}
+
+.fluffSeventeen {
+  width: 110px;
+  height: 110px;
+  top: -50px;
+  left: 220px;
+}

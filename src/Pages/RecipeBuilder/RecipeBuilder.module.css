@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding: 50px;
+  font-size: 54px;
+  color: rgb(223, 0, 0);
+  text-shadow: 2px 2px #000000;
+}
+.recipeForm {
+  width: 50%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  align-self: center;
+  border-radius: 10px;
+}
+.recipeForm label {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.recipeForm input[type="text"] {
+  width: 25%;
+  padding: 5px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.recipeForm input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}

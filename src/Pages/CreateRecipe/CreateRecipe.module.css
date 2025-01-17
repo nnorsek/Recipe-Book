@@ -1,0 +1,25 @@
+.createButton {
+  background-color: #0084ff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 17px;
+  border: none;
+  transform: all 0.3s ease;
+  border-radius: 30px;
+  width: 200px;
+  font-family: "Open Sans";
+}
+.createButton:hover {
+  background-color: #00a2ff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
+.description {
+  font-size: 1rem;
+  font-style: italic;
+  padding-bottom: 40px;
+}
