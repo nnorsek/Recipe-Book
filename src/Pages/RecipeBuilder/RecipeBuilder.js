@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./RecipeBuilder.module.css";
 import Cloud from "../../Components/Cloud/Cloud.js";
 import { getCategories } from "../../Utils/api.js";
+import TimePicker from "react-time-picker";
+import { useNavigate } from "react-router-dom";
 
 const RecipeBuilder = () => {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     recipeName: "",
@@ -40,6 +43,9 @@ const RecipeBuilder = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Recipe Builder</h1>
       <Cloud />
+      <button className={styles.backButton} onClick={() => navigate("/")}>
+        Back
+      </button>
       <div className={styles.recipeForm}>
         <form>
           <label>Recipe Name</label>
@@ -71,11 +77,16 @@ const RecipeBuilder = () => {
               ))}
           </select>
           <label>Cook Time</label>
-          <input
-            type="text"
-            name="cookTime"
+          <TimePicker
+            onChange={(value) =>
+              setFormData((prevState) => ({ ...prevState, cookTime: value }))
+            }
             value={formData.cookTime}
-            onChange={handleChange}
+            disableClock={true} // Hides the clock dropdown
+            format="HH:mm" // Shows only hours and minutes
+            clearIcon={null} // Removes the clear icon
+            hourPlaceholder="HH"
+            minutePlaceholder="MM"
           />
           <label>Image</label>
           <input

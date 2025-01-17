@@ -1,38 +1,151 @@
+/* Container styling with a fun background */
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Title styling with a playful font */
 .title {
-  padding: 50px;
-  font-size: 54px;
-  color: rgb(223, 0, 0);
-  text-shadow: 2px 2px #000000;
-}
-.recipeForm {
-  width: 50%;
-  background-color: #fff;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  align-self: center;
+  font-size: 60px;
+  color: #ff5733;
+  text-shadow: 3px 3px #ffc300;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Recipe form with a card-like effect */
+.recipeForm {
+  width: 100%;
+  max-width: 650px;
+  background-color: #fff8f0;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-top: 20px;
+  border: 2px dashed #ffa500;
+}
+
+/* Label styling with vibrant colors */
+.recipeForm label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #ff6f61;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs and select with soft pastel colors */
+.recipeForm input[type="text"],
+.recipeForm select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #fffdf5;
+  transition: all 0.3s ease;
+}
+
+/* Focus effect for inputs */
+.recipeForm input[type="text"]:focus,
+.recipeForm select:focus {
+  border-color: #ff6f61;
+  background-color: #fff0e0;
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Styled button with a fun effect */
+.recipeForm button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover with bounce effect */
+.recipeForm button:hover {
+  background-color: #ff8c42;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 108, 67, 0.4);
+}
+
+/* Back button with a softer look */
+.backButton {
+  height: 45px;
+  width: 150px;
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Back button hover */
+.backButton:hover {
+  background-color: #ff6f61;
+  transform: scale(1.05);
+}
+
+/* Styled TimePicker */
+.recipeForm .react-time-picker {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  background-color: #fffdf5;
+}
+
+.react-time-picker__wrapper {
+  border: none;
+  background-color: #fffdf5;
+  padding: 10px 15px;
   border-radius: 10px;
 }
-.recipeForm label {
-  font-weight: bold;
-  padding: 10px;
-}
 
-.recipeForm input[type="text"] {
-  width: 25%;
-  padding: 5px 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.react-time-picker__inputGroup__input {
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  border: none;
+  width: 40px;
+  background-color: transparent;
+  text-align: center;
+  color: #ff6f61;
 }
 
-.recipeForm input[type="text"]:focus {
-  border-color: #007bff;
-  outline: none;
+.react-time-picker__clock {
+  background-color: #ffecd2;
+}
+
+.react-time-picker__button svg {
+  stroke: #ff6f61;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recipeForm {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
 }
